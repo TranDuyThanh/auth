@@ -52,5 +52,5 @@ func BasicFunc(authfn func(string, string) bool) martini.Handler {
 
 func unauthorized(res http.ResponseWriter) {
 	res.Header().Set("WWW-Authenticate", "Basic realm=\""+BasicRealm+"\"")
-	http.Error(res, "Not Authorized", http.StatusUnauthorized)
+	http.Error(res, "{\"error\": \"Wrong username or password\"}", http.StatusUnauthorized)
 }
